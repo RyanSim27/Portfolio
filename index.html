@@ -4,7 +4,167 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - Ryan Sim</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #121212;  /* Dark background */
+      color: #ffffff;             /* White text */
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      /* No body padding so header and footer touch the edges */
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: #1e1e1e;  /* Darker header background */
+      color: #ffffff;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+    
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
+    
+    nav ul {
+      list-style: none;
+    }
+    
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+    
+    /* Header Links with Hover Effects */
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+      color: #6200ee;         /* Highlighted color on hover */
+      text-decoration: underline;
+    }
+    
+    /* Main Content Sections */
+    main {
+      padding: 3rem 2rem;       /* Horizontal padding for main content */
+      max-width: 800px;
+      margin: auto;
+    }
+    
+    section {
+      margin-bottom: 3rem;
+    }
+    
+    /* Section Titles with Underlines */
+    section h2 {
+      display: inline-block;
+      border-bottom: 2px solid #ffffff; /* White underline */
+      margin-bottom: 1rem;
+      padding-bottom: 0.2rem;
+    }
+    
+    /* Fade-in Transition for Sections and Other Elements */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Projects Section: Project Cards */
+    .project {
+      background-color: #1e1e1e;  /* Dark background for cards */
+      border: 1px solid #333;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;         /* Rounded edges */
+    }
+    
+    .project h3,
+    .project p {
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Button Style for "View on GitHub" Links */
+    .project a {
+      display: inline-block;
+      background-color: #6200ee;  /* Purple button color */
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .project a:hover {
+      background-color: #3700b3;  /* Darker purple on hover */
+    }
+    
+    /* Skills Icons Grid */
+    .skills-icons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      justify-items: center;
+      margin: 1rem 0;
+    }
+    
+    .skills-icons a img {
+      width: 80px;
+      height: 80px;
+    }
+    
+    /* Contact Icons aligned to the left */
+    .contact-icons {
+      display: flex;
+      justify-content: flex-start;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+    
+    .contact-icons a img {
+      width: 80px;
+      height: 80px;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background-color: #1e1e1e;  /* Dark footer background */
+      color: #ffffff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    /* Credits Section Styles */
+    .credits {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+    }
+    
+    .credits a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <!-- Header Section -->
@@ -15,7 +175,6 @@
         <li><a href="#about">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -24,66 +183,140 @@
   <!-- Main Content -->
   <main>
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="fade-in">
       <h2>About Me</h2>
       <p>
-        Hi, I'm Ryan, an IT student speciallizing in Software Development at Ngee Ann Polytechnic. I am passionate about building efficient and scalable software solutions, especially backend coding like SQL and Firebase.
+        Hi, I'm Ryan, an IT student specializing in Software Development at Ngee Ann Polytechnic. I am passionate about building efficient and scalable software solutions, especially backend coding like SQL and Firebase.
       </p>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="fade-in">
       <h2>Projects</h2>
       <article class="project">
         <h3>Full Stack Development - Verdex</h3>
-        <p>For this project I was in a team of 5 trying to make a web application for manufacturing companies to keep track of
-            their operational costs, carbon emissions and energy consumption. I mainly did the login, signup and linking of the backend to the main dashboard.
+        <p>
+          For this project I was in a team of 5 trying to make a web application for manufacturing companies to keep track of
+          their operational costs, carbon emissions and energy consumption. I mainly did the login, signup and linking of the backend to the main dashboard.
         </p>
         <a href="https://github.com/s10260527/MARLY" target="_blank">View on GitHub</a>
       </article>
 
       <article class="project">
         <h3>Backend Development - Future Learners</h3>
-        <p>In this project I was paired with 2 other group members to make a Learning Management System (LMS).
-            In this project I learned how to use 3rd party APIs and have complex SQL statements.
+        <p>
+          In this project I was paired with 2 other group members to make a Learning Management System (LMS).
+          I learned how to use 3rd party APIs and craft complex SQL statements.
         </p>
         <a href="https://github.com/COMET-C275/BED2024Apr_P07_T07" target="_blank">View on GitHub</a>
       </article>
 
       <article class="project">
         <h3>Frontend Development - Fan Website</h3>
-        <p>This is a solo frontend project that I made that was a fan website for the Japanese duo Yoasobi. I learned to hone my frontend skills here,
-            and made use of html, css and many more.
+        <p>
+          This is a solo frontend project that I made—a fan website for the Japanese duo Yoasobi. I honed my frontend skills here,
+          utilizing HTML, CSS, and more.
         </p>
         <a href="https://github.com/RyanSim27/FEDAssignment1" target="_blank">View on GitHub</a>
       </article>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" class="fade-in">
       <h2>Skills</h2>
-      <ul>
-        <li>Programming: Java, Python, JavaScript</li>
-        <li>Backend: Firebase, SSMS</li>
-        <li>Frameworks: React, Node.js, Express</li>
-        <li>Tools: Git, VS Code, Android Studio</li>
-      </ul>
+      <div class="skills-icons">
+        <a href="https://www.flaticon.com/free-icons/java" target="_blank">
+          <img src="images/java.png" alt="Java Icon">
+        </a>
+        <a href="https://www.flaticon.com/free-icons/python" target="_blank">
+          <img src="images/python.png" alt="Python Icon">
+        </a>
+        <a href="https://www.flaticon.com/free-icons/javascript" target="_blank">
+          <img src="images/java-script.png" alt="JavaScript Icon">
+        </a>
+        <a href="https://www.flaticon.com/free-icons/sql-server" target="_blank">
+          <img src="images/sql-server.png" alt="SQL Server Icon">
+        </a>
+        <a href="https://www.flaticon.com/free-icons/nodejs" target="_blank">
+          <img src="images/nodejs.png" alt="Node.js Icon">
+        </a>
+        <a href="https://www.flaticon.com/free-icons/react" target="_blank">
+          <img src="images/physics.png" alt="React Icon">
+        </a>
+        <a href="https://www.flaticon.com/free-icons/visual-studio" target="_blank">
+          <img src="images/visual-studio.png" alt="Visual Studio Icon">
+        </a>
+        <a href="https://www.flaticon.com/free-icons/github" target="_blank">
+          <img src="images/github.png" alt="GitHub Icon">
+        </a>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="fade-in">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:rysimzy@gmail.com">rysimzy@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/ryan-sim-zy/" target="_blank">Ryan Sim</a></p>
-      <p>GitHub: <a href="https://github.com/RyanSim27" target="_blank">RyanSim27</a></p>
+      <div class="contact-icons">
+        <a href="mailto:rysimzy@gmail.com">
+          <img src="images/gmail.png" alt="Gmail Icon">
+        </a>
+        <a href="https://www.linkedin.com/in/ryan-sim-zy/" target="_blank">
+          <img src="images/linkedin.png" alt="LinkedIn Icon">
+        </a>
+        <a href="https://github.com/RyanSim27" target="_blank">
+          <img src="images/github.png" alt="GitHub Icon">
+        </a>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer class="fade-in">
     <p>&copy; 2025 Ryan Sim. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Credits Section -->
+  <div class="credits">
+    <p>
+      Icons made by 
+      <a href="https://www.flaticon.com/authors/freepik" target="_blank" title="Freepik">Freepik</a>, 
+      <a href="https://www.flaticon.com/authors/kiranshastry" target="_blank" title="Kiranshastry">Kiranshastry</a>, 
+      <a href="https://www.flaticon.com/authors/pixel-perfect" target="_blank" title="Pixel perfect">Pixel perfect</a>, and 
+      <a href="https://www.flaticon.com/authors/laisa-islam-ani" target="_blank" title="Laisa Islam Ani">Laisa Islam Ani</a> 
+      from <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">Flaticon</a>.
+    </p>
+  </div>
+
+  <script>
+    // Fade-in on scroll using Intersection Observer
+    document.addEventListener("DOMContentLoaded", function() {
+      const faders = document.querySelectorAll('.fade-in');
+      
+      const appearOptions = {
+        threshold: 0.2  // Adjust this value if needed
+      };
+      
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+      
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
+      
+      // Optional: Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
